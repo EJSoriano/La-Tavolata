@@ -1,0 +1,122 @@
+html {
+	height: 100%;
+}
+header{
+	background-color: #57702c;
+	margin-bottom:0em;
+	padding: 1em;
+	position: relative;
+}
+
+header>*{
+	display: inline;
+}
+
+.logo{
+	display: inline-block;
+	clear: both;
+	margin: 0.2em;
+}
+
+nav{
+	font-size: 150%;
+	font-weight: bold;
+	position:absolute;
+	margin: 0;
+	padding: 1em;
+	bottom:0;
+}
+
+nav ul li {
+	display: inline;
+	background-color: #563013;
+	padding: 0.2em;
+	margin: 1em 0.5em 1em 0.5em;
+	border: solid 3pt white;
+}
+
+
+
+header a { text-decoration: none; }
+header a:link {color: #ffd95e; }
+header a:visited {color: #ffd95e; }
+
+.phone {
+	position: absolute;
+	top: 0;
+	right: 1em;
+	padding: 1em;
+	margin:  1em;
+	font-weight: bold;
+	font-size: 120%;
+	color: white;
+}
+
+img {
+	max-width: 100%;
+
+}
+body{
+	background-color: #ffeca3;
+	height: 100%;
+}
+
+main{
+	background-color: white;
+	padding: 0;
+	margin: 0 auto;
+	max-width:70%;
+	height: 90%;
+	position: relative;
+}
+
+main>*{
+	display: inline;
+}
+
+.welcomeMain{
+	margin: 2em;
+	padding: 1em;
+	font-weight: bold;		
+	position:absolute;
+}
+
+.contactMain{
+	margin: 2em;
+	padding: 1em;
+	font-weight: bold;		
+	position:absolute;
+}
+
+.menuNav{
+	background-color: #563013;
+	height:95%;
+	margin:0;
+	padding: 1em;
+	width: 30%;
+	text-align: center;
+	display: inline-block;
+	clear: both;
+}
+
+.menuNav ul {
+	list-style: none;
+	color: white;
+	font-weight: bold;
+	font-size: 150%;
+	border: solid 3pt white;
+	margin: 0.5em;
+	padding: 0.5em;
+}
+
+.menuNav ul li{
+	margin: 0.5em;
+}
+
+.menuMain{
+	font-weight: bold;
+	position:absolute;
+	padding: 1em;
+	background-color: white;
+	height: 95%;
+}
