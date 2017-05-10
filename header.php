@@ -6,11 +6,15 @@
 		<ul>
 			<li><a href = "index.php">Home</a></li>
 			<li><a href = "menu.php">Menu</a></li>
-			<li><a href = "contact.php">Contact & Location</a></li>
+			<li><a href = "contact.php">Contact &#38; Location</a></li>
 		</ul>
 	</nav>
 	<div class="phone">
 		<p>Phone (###) ###-####</p>
-		<a href = "login.php">Login</a>
+		<?php if (isset($_SESSION['UserID'])): ?>
+			<p><a href="logout.php">Logout</a></p>
+		<?php else: ?>
+			<a href="login.php">Login</a>
+		<?php endif ?>
 	</div>
 </header>

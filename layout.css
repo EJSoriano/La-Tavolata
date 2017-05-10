@@ -82,8 +82,20 @@ main>*{
 .contactMain{
 	margin: 2em;
 	padding: 1em;
-	font-weight: bold;		
+	font-weight: bold;
 	position:absolute;
+}
+
+.loginMain{
+	margin: 2em;
+	padding: 1em;
+	font-weight: bold;
+	position:absolute;
+}
+
+.input-error {
+	color: red;
+	font-style: italic;
 }
 
 .menuNav{
