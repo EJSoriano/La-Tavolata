@@ -75,7 +75,7 @@ main>*{
 .welcomeMain{
 	margin: 2em;
 	padding: 1em;
-	font-weight: bold;		
+	font-weight: bold;
 	position:absolute;
 }
 
@@ -84,6 +84,24 @@ main>*{
 	padding: 1em;
 	font-weight: bold;
 	position:absolute;
+}
+
+.img-maps {
+	border: 2px gray solid;
+}
+
+.img-maps:hover {
+    opacity: 0.5;
+    filter: alpha(opacity=50); /* For IE8 and earlier */
+}
+
+#social {
+	text-align: center;
+	margin: 15px;
+}
+
+#social ul {
+	padding: 15px;
 }
 
 .loginMain{
