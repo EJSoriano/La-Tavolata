@@ -1,14 +1,14 @@
 #!/usr/local/php5/bin/php-cgi
 <!DOCTYPE html>
 <html lang = "en">
-<?php
-	  if (isset($_GET[sqlfail])){
-		  $sqlErr = "SQL Error: " . mysqli_error($connection);
-	  }
-	  if (isset($_GET[success])){
-		  $success = "Operation Successful";
-	  }
-?>
+	<?php
+		  if (isset($_GET[sqlfail])){
+			  $sqlErr = "SQL Error: " . mysqli_error($connection);
+		  }
+		  if (isset($_GET[success])){
+			  $success = "Operation Successful";
+		  }
+	?>
 	<head>
 		<title>La Tavolita</title>
 		<meta charset="utf-8">
@@ -19,7 +19,7 @@
 	<body>
 		<?php 
 			include 'header.php';
-			//require 'required.php';	
+			include 'required.php';	
 		?>
 
 		<main>
@@ -35,8 +35,8 @@
 				<th>Name</th>
 				<th>Price</th>
 				<th>Category</th>
-				<th></th>
-				<th></th>
+				<th>Modify</th>
+				<th>Delete</th>
 
              </tr>
 			 <?php

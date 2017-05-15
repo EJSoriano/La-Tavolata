@@ -7,17 +7,10 @@
 		<link rel = "stylesheet" href="reset.css">
 		<link rel = "stylesheet" href="layout.css">
 	</head>
-	<?php require 'header.php'; 
+	<?php 
+	include 'header.php'; 
+	include 'required.php';
 	//PHP Session validation here
-	
-	$regprice = "/^\d+(?:\.\d{2})?$/";
-	$regname = "/.*/";
-	$regdesc = "/.*/";
-	$regpath = "/.*/";
-	$regcat = "^\d+$";
-
-
-
 	  if(isset($_GET[errname])) {
 		  $nameErr = "* Must have valid characters in Name. No Special Characters Allowed eg '.' ',' '^' etc"; 
 	  } 
