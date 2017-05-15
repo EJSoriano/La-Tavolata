@@ -1,11 +1,21 @@
 html {
 	height: 100%;
 }
+
+h1{
+	color: darkred;
+	font-weight: bold;
+	font-size: 250%;
+}
 header{
-	background-color: #57702c;
+	background-image: url("Images/headerbackground.jpg");
+	background-size: 100%;
+	background-repeat: no-repeat;
 	margin-bottom:0em;
 	padding: 1em;
 	position: relative;
+	overflow: hidden;
+
 }
 
 header>*{
@@ -16,6 +26,7 @@ header>*{
 	display: inline-block;
 	clear: both;
 	margin: 0.2em;
+	max-width: 50%;
 }
 
 nav{
@@ -25,29 +36,61 @@ nav{
 	margin: 0;
 	padding: 1em;
 	bottom:0;
+	min-width: 20%;
+	max-height: 73%;
 }
 
 nav ul li {
 	display: inline;
-	background-color: #563013;
-	padding: 0.2em;
 	margin: 1em 0.5em 1em 0.5em;
+}
+
+.navButton {
+	background-color: #563013;
+    border: none;
+	font-size: 120%;
 	border: solid 3pt white;
+	padding: 0em 0.7em 0em 0.7em;
+    cursor: pointer;
+	transition: 0.2s;
+	font-weight: bold;
+
+}
+
+.navButton:hover {
+	background-color:#3F230E;
+	color: #ffd95e; 
+	transition: 0.2s;
 }
 
 header a { text-decoration: none; }
 header a:link {color: #ffd95e; }
 header a:visited {color: #ffd95e; }
 
+footer{
+	background-color: #47630C;
+	color: white;
+	font-style: bold;
+	width: 100%;
+	text-align: center;
+}
+
+footer div{
+	border-top: solid 2pt white;
+	padding: 1em;
+	width: 70%;
+	margin: auto;
+}
 .phone {
 	position: absolute;
 	top: 0;
 	right: 1em;
 	padding: 1em;
-	margin:  1em;
+	margin:  0.5em;
 	font-weight: bold;
 	font-size: 120%;
 	color: white;
+
 }
 
 img {
@@ -55,17 +98,24 @@ img {
 
 }
 body{
-	background-color: #ffeca3;
+	background-image: url("Images/background3.jpeg");
+	background-position: center top;
+	background-size: 100% 100%;
 	height: 100%;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	
 }
 
 main{
 	background-color: white;
 	padding: 0;
 	margin: 0 auto;
-	max-width:70%;
+	min-width: 70%;
+	width:70%;
 	height: 90%;
 	position: relative;
+	overflow: hidden;
 }
 
 main>*{
@@ -118,33 +168,69 @@ main>*{
 
 .menuNav{
 	background-color: #563013;
-	height:95%;
-	margin:0;
+	height:100%;
+	margin: 0 auto;
 	padding: 1em;
-	width: 30%;
+	width: 25%;
 	text-align: center;
 	display: inline-block;
 	clear: both;
-}
-
-.menuNav ul {
-	list-style: none;
-	color: white;
-	font-weight: bold;
-	font-size: 150%;
-	border: solid 3pt white;
-	margin: 0.5em;
-	padding: 0.5em;
-}
-
-.menuNav ul li{
-	margin: 0.5em;
+	
 }
 
 .menuMain{
 	font-weight: bold;
 	position:absolute;
-	padding: 1em;
 	background-color: white;
-	height: 95%;
+	width: 70%;
+	height: 100%;
+	background-color: white;
+	padding: 2em;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.menuWrapper{
+	text-align: center;
+	font-style: bold;	
+	width: 50%;
+	margin: 0 auto;
+	padding: 0;
+	
+
+}
+.categoryTable a {text-decoration: none;}
+.categoryTable a:link {color: darkred;}
+.categoryTable a:visited {color: darkred; }
+
+.categoryTable{
+	border: solid 2pt darkgray;
+	width: 80%;
+	padding:0;
+	margin: 0 auto;
+}
+
+.categoryTable td a{
+	padding: 0.5em;
+	font-size: 150%;
+	font-weight: bold;
+	background-color: #FFDE5E; 
+	cursor: pointer;
+	display: block;
+}
+
+.categoryTable td a:hover {
+	color: BF0000;
+	background-color: #D1A140;
+	transition: 0.3s
+}
+.foodTable{
+	border: solid 2pt black;
+	margin: auto;
+	font-size: 130%;
+}
+
+.foodTable td{
+	border: solid 2pt black;
+	padding: 1em;
 }

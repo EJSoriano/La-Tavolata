@@ -1,4 +1,3 @@
-<?php require_once('required.php') ?>
 <!DOCTYPE html>
 <html lang = "en">
 	<head>
@@ -7,7 +6,7 @@
 		<link rel = "stylesheet" href="reset.css">
 		<link rel = "stylesheet" href="layout.css">
 	</head>
-
+	
 	<body>
 		<?php include 'header.php' ?>
 		<main>
