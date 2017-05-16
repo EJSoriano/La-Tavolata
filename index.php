@@ -1,3 +1,7 @@
+#!/usr/local/php5/bin/php-cgi
+<?php
+	include 'required.php';
+	?>
 <!DOCTYPE html>
 <html lang = "en">
 	<head>

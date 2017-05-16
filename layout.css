@@ -109,13 +109,11 @@ body{
 
 main{
 	background-color: white;
-	padding: 0;
+	padding: 0em;
 	margin: 0 auto;
-	min-width: 70%;
-	width:70%;
-	height: 90%;
+	max-width: 70%;
+	min-height: 100%;
 	position: relative;
-	overflow: hidden;
 }
 
 main>*{
@@ -184,16 +182,17 @@ main>*{
 	background-color: white;
 	width: 70%;
 	height: 100%;
-	background-color: white;
-	padding: 2em;
+	padding: 0em;
 	text-align: center;
 	margin: 0 auto;
+	overflow; scroll;
+	overflow-y: auto;
 }
 
 .menuWrapper{
 	text-align: center;
 	font-style: bold;	
-	width: 50%;
+	width: 100%;
 	margin: 0 auto;
 	padding: 0;
 	
@@ -202,9 +201,15 @@ main>*{
 .categoryTable a {text-decoration: none;}
 .categoryTable a:link {color: darkred;}
 .categoryTable a:visited {color: darkred; }
+.categoryTable td a:hover {
+	color: black;
+	background-color: #D1A140;
+	transition: 0.3s
+}
 
 .categoryTable{
 	border: solid 2pt darkgray;
+	table-layout: fixed;
 	width: 80%;
 	padding:0;
 	margin: 0 auto;
@@ -217,20 +222,44 @@ main>*{
 	background-color: #FFDE5E; 
 	cursor: pointer;
 	display: block;
-}
-
-.categoryTable td a:hover {
-	color: BF0000;
-	background-color: #D1A140;
-	transition: 0.3s
+	overflow: hidden;
+	text-overflow: ellipsis;
+	text-align: center;
+	white-space: nowrap;
 }
 .foodTable{
-	border: solid 2pt black;
-	margin: auto;
+	table-layout: fixed;
+	margin: 0 auto;
+	padding: 0;
+	width: 90%;
 	font-size: 130%;
+	border:none;
+	border-collapse: collapse;
 }
 
-.foodTable td{
-	border: solid 2pt black;
+.foodTable td {
+	border: 2pt solid lightgray;
+}
+
+.foodDetails{
 	padding: 1em;
 }
+
+.foodName{
+	background-color: #47630C;
+	color: #ffd95e;
+	text-align: center;
+	padding: 0.2em;
+	font-weight: bold;
+	font-size: 120%;
+}
+
+.foodPrice{
+	color: darkred;
+	text-align: right;
+	font-weight: bold;
+	font-size: 120%;
+	padding: 0.2em;
+}
+
+

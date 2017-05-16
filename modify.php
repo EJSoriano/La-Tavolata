@@ -1,7 +1,4 @@
 #!/usr/local/php5/bin/php-cgi
-<?php
-	include 'required.php';
-	?>
 <!DOCTYPE html>
 <html lang = "en">
 	<head>
@@ -10,25 +7,10 @@
 		<link rel = "stylesheet" href="reset.css">
 		<link rel = "stylesheet" href="layout.css">
 	</head>
-	<?php require 'header.php'; 
+	<?php 
+	include 'header.php'; 
+	include 'required.php';
 	//PHP Session validation here
-	
-	$regprice = "/^\d+(?:\.\d{2})?$/";
-	$regname = "/.*/";
-	$regdesc = "/.*/";
-	$regpath = "/.*/";
-	$regcat = "^\d+$";
-	$error=false;	
-	//$_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-	$name= $_POST[name];
-	$price= $_POST[price];
-	$description= $_POST[description];
-	$path = $_POST[path];
-	$category= $_POST[category];
-	$error=false;
-
-
-
 	  if(isset($_GET[errname])) {
 		  $nameErr = "* Must have valid characters in Name. No Special Characters Allowed eg '.' ',' '^' etc"; 
 	  } 
@@ -48,38 +30,61 @@
 		  $sqlErr = "SQL Error: " . mysqli_error($connection);
 	  }
 	  if (isset($_GET[success])){
-		  $success = "Your Item was Successfully Added";
+		  $success = "Your Item was Successfully added";
 	  }
+	  $query = "SELECT name, price, category_id, path_to_image,description from menu_item WHERE name = ?";
+	  if(!$stmt=mysqli_prepare($connection, $query)){
+		  echo "PROBLEMS";
+	  }
+	  if(!mysqli_stmt_bind_param($stmt, 's',$oname)){
+		  echo "Dafuq!";
+	  };
+	  $oname= $_GET[oname];
+	  echo $oname;
+
+	  if(!mysqli_stmt_execute($stmt)){
+		  echo "DAMMIT";
+	  };
+	  if(!mysqli_stmt_bind_result($stmt, $name, $price, $category, $path, $description)){
+		  echo "WHAT THE FUQ";
+	  };
+	  if(!mysqli_stmt_fetch($stmt)){
+		  echo "Illegal Link, Click <a href='admin.php'> Here </a> to go back";
+		  die();
+	  }
+	  mysqli_stmt_close($stmt);
 	?>
 
 	<body>
-	<main>
+		<main>
 		<div class="back"> Click <a href="admin.php"> Here </a> </div>
 		<span class='errorblock'> <?php echo $sqlErr; ?> </span>
 		<span class='successblock'> <?php echo $success; ?> </span>
 		<form method="POST" action='process.php' >
 			<fieldset>
 				<legend> New Menu Item Form </legend>
-					<input type='hidden' name='type' value='add'>
+					<input type='hidden' name='type' value='modify'>
+					<input type='hidden' name='oname' value="<?php echo $_GET[oname]; ?>"
 					<div class= 'form_name'>	
 						<label for= 'name'>Item Name </label>
-							<input type='text' name='name' >
+							<input type='text' name='name' value="<?php echo $name ?>">
 							<span class='error'> <?php echo $nameErr; ?> </span>
 					</div>
 					<div class= 'form_price'>
 						<label for = 'price'> Price </label>
-							<input type='text' name='price'>
+							<input type='text' name='price' value='<?php echo $price ?>'>
 							<span class='error'> <?php echo $priceErr; ?> </span>
 					</div>
 					<div class= 'form_category'>
 						<select name = 'category' id= 'category' >
-						<option selected value='' disabled>Choose a Category</option>
 						<?php 			
 							$query = "SELECT name, id FROM menu_categories ORDER BY name ASC";
 							$result = mysqli_query($connection, $query);
 							if($result){
 								while($row=mysqli_fetch_assoc($result)){
-								echo "<option value='" . $row[id] . "'>" . $row[name] . "</option>\r\n"; 
+									echo "<option value='" . $row[id] ."'"; 
+									if($row[id]==$category){echo " selected='selected'" ;}  
+									echo ">" . $row[name]. "</option>\r\n"; 
 								}
 							}else{echo "Database Query Error Detect, no results returned <br/>";}
 						?>
@@ -88,18 +93,18 @@
 					</div>
 					<div class= 'form_path'>
 						<label for = 'path'>File Path </label>
-							<input type='text' name = 'path'>
+							<input type='text' name = 'path'  value='<?php echo $path ?>'>
 							<span class='error'><?php echo $pathErr; ?></span>
 					</div>
 					<div class= 'form_description'>
 						<label for= 'description'>Description </label>
-							<input type='text' name = 'description'>
+							<input type='text' name = 'description'  value='<?php echo $description ?>'>
 							<span class='error'><?php echo $descErr; ?></span>			
 					</div>
 						<input type='submit' value='submit'>		
 			</fieldset>
 		</form>
-		<main>
+		</main>
 	</body>
 </html>
 

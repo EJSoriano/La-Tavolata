@@ -1,28 +1,23 @@
+#!/usr/local/php5/bin/php-cgi
+
 <?php
-
 require_once('required.php');
-
 if (isset($_SESSION['UserID'])) {
     header('Location: /index.php');
     return;
 }
-
 define('DB_HOST', 'cecs-db01.coe.csulb.edu');
 define('DB_NAME', 'cecs470og2');
 define('DB_USERNAME', 'cecs470m17');
 define('DB_PASSWORD', 'ohbai0');
-
 // initialize variables
 $id = "";
 $password = "";
-
 $idClass = '';
 $idMessage = '';
 $passwordMessage = '';
 $passwordClass = '';
-
 $validLogin = false;
-
 if (isset($_POST['id'])) {
     if ($_POST['id']) {
         $id = $_POST['id'];
@@ -41,7 +36,6 @@ if (isset($_POST['password'])) {
         $passwordMessage = "Password is empty";
     }
 }
-
 if ($id && $password) {
     // mysqli_report(MYSQLI_REPORT_ALL);
     $connection = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
@@ -54,11 +48,8 @@ if ($id && $password) {
     if (mysqli_stmt_prepare($stmt, $query)) {
         mysqli_stmt_bind_param($stmt, 's', $id);
         mysqli_stmt_execute($stmt);
-
         mysqli_stmt_bind_result($stmt, $sqlID, $sqlId, $sqlPassword);
-
         mysqli_stmt_store_result($stmt);
-
         if (mysqli_stmt_num_rows($stmt) == 0) {
             $idMessage = "ID not found";
             // $idClass = 'input-error';
@@ -76,10 +67,8 @@ if ($id && $password) {
         mysqli_stmt_free_result($stmt);
         mysqli_stmt_close($stmt);
     }
-
     mysqli_close($connection);
 }
-
 ?>
 
 <!DOCTYPE html>

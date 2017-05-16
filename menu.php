@@ -1,9 +1,19 @@
+#!/usr/local/php5/bin/php-cgi
+
 <?php 
 
 require_once('required.php');
 if(isset($_GET["category"])){
-	$category = $_GET["category"];
-}
+	$categoryTitle = $_GET["category"];
+	$sql = "SELECT * FROM menu_categories where name = '" . $categoryTitle . "';";
+		$result = mysqli_query($connection, $sql);
+		if ($result = mysqli_query($connection,$sql)){
+			while ($row=mysqli_fetch_assoc($result)){
+				$catID = $row["id"];
+			}
+			mysqli_free_result($result);
+		}
+} 
 
 ?>
 <!DOCTYPE html>
@@ -23,34 +33,32 @@ if(isset($_GET["category"])){
 				</br></br>
 				<table class="categoryTable">
 				<?php
-					//$sql = "SELECT CategoryName FROM Categories";
-					//$result = mysqli_query($connection, $sql);
-					//if ($result = mysqli_query($connection,$sql)){
-					//	while ($row=mysqli_fetch_assoc($result)){
-					//		echo "<li><a href = 'menu.php?category=" . $category . "'> " . $row["CategoryName"]. "</li></a>";
-					//	}
-					//	mysqli_free_result($result);
-					//}
-					//else { echo "No Menu Available<br>";}
+					$sql = "SELECT * FROM menu_categories;";
+					$result = mysqli_query($connection, $sql);
+					if ($result = mysqli_query($connection,$sql)){
+						while ($row=mysqli_fetch_assoc($result)){
+							$category = $row["name"];
+							echo "<tr><td>
+								<a href = 'menu.php?category=" . $category . "'> " . $category . 
+							"</a></td></tr>";
+						}
+						mysqli_free_result($result);
+					}
+					else { echo "No Menu Available<br>";}
 				?>
-					<tr>
-						<td><a href="menu.php?category=Appetizer">Appetizers</a></li></td>
-					</tr>
-					<tr>
-						<td><a href="menu.php?category=Soups">Soups</a></li></td>
-					
-					<tr><td>Salads</td></tr>
-					<tr><td>Pastas</td></tr>
 				</table>
+				</br></br></br></br></br></br></br></br></br></br></br>
 			</div>
 			<div class="menuMain">
+				<div class="menuWrapper">
 					<?php 
-						if(isset($category)){
+						if(isset($categoryTitle)){
 							include 'foodtable.php';
 						} else {
 							echo "Opening content";
 						}
 					?>
+				</div>
 			</div>
 		</main>
 		<?php include 'footer.php' ?>

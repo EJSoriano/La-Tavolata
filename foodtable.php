@@ -1,29 +1,23 @@
-<?php echo "<h1>" . $category . "</h1>"; ?>
+<?php echo "<h1>" . $categoryTitle . "</h1>"; ?>
 <br/>
 <table class="foodTable">
-	<tr>
-		<td>1</td>
-		<td>2</td>
-		<td>3</td>
-		<td>4</td>
-	</tr>
-	<tr>
-		<td>5</td>
-		<td>6</td>
-		<td>7</td>
-		<td>8</td>
-	</tr>
-	<tr>
-		<td>9</td>
-		<td>10</td>
-		<td>11</td>
-		<td>12</td>
-	</tr>
-	<tr>
-		<td>13</td>
-		<td>14</td>
-		<td>15</td>
-		<td>16</td>
-	</tr>
+	<?php
+		$sql = "SELECT * FROM menu_item where category_id = " . $catID . ";";
+			$result = mysqli_query($connection, $sql);
+			if ($result = mysqli_query($connection,$sql)){
+				while ($row=mysqli_fetch_assoc($result)){
+					$foodName = $row["name"];
+					$foodPrice = $row["price"];
+					$foodDescription = $row["description"];
+					$foodImage = $row["path_to_image"];
+					echo "<tr><td>" . $foodImage . "</td>";
+					echo "<td><div class='foodName'>" . $foodName . "</div>";
+					echo "<div class='foodDetails'>" . $foodDescription . "</div>";
+					echo "<div class='foodPrice'>$" . $foodPrice . "</div></td></tr>";
+				}
+				mysqli_free_result($result);
+			}
+			else { echo "No Menu Available<br>";}
+	?>
 </table>
 	
