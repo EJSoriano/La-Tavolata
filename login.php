@@ -1,3 +1,4 @@
+#!/usr/local/php5/bin/php-cgi
 <?php
 require_once('required.php');
 if (isset($_SESSION['UserID'])) {
@@ -53,13 +54,15 @@ if ($id && $password) {
             // $idClass = 'input-error';
         } else {
              while (mysqli_stmt_fetch($stmt)) {
-                if (($sqlId == $id) && ($sqlPassword == $password)) {
+                if (($sqlId == $id) && (password_verify($password, $sqlPassword))) {
                     $validLogin = true;
                     $_SESSION['UserID'] = $sqlId;
                 } else {
                     $passwordMessage = "Incorrect password";
-                    // $passwordClass = 'input-error';
                 }
+                // if ((($sqlPassword == $password)) {
+                // } else {
+                // }
             }
         }
         mysqli_stmt_free_result($stmt);

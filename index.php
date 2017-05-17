@@ -1,3 +1,4 @@
+#!/usr/local/php5/bin/php-cgi
 <?php
 	include 'required.php';
 ?>
@@ -6,9 +7,9 @@
 	<head>
 		<title>La Tavolita</title>
 		<meta charset="utf-8">
-		<link rel = "stylesheet" href="reset.css">
-		<link rel = "stylesheet" href="layout.css">
-		<link rel = "stylesheet" href="index.css">
+		<link rel="stylesheet" href="reset.css">
+		<link rel="stylesheet" href="layout.css">
+		<link rel="stylesheet" href="index.css">
 	</head>
 
 	<body>
