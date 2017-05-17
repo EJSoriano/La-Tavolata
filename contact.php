@@ -7,7 +7,7 @@
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="reset.css">
 		<link rel="stylesheet" href="layout.css">
-		<link rel="stylesheet" href="/style/social.css">
+		<link rel="stylesheet" href="style/social.css">
 	</head>
 
 	<body>

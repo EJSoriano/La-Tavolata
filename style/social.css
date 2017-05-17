@@ -1,10 +1,10 @@
 @font-face {
     font-family: 'si';
-    src: url('/style/socicon.eot');
-    src: url('/style/socicon.eot?#iefix') format('embedded-opentype'),
-         url('/style/socicon.woff') format('woff'),
-         url('/style/socicon.ttf') format('truetype'),
-         url('/style/socicon.svg#icomoonregular') format('svg');
+    src: url('socicon.eot');
+    src: url('socicon.eot?#iefix') format('embedded-opentype'),
+         url('socicon.woff') format('woff'),
+         url('socicon.ttf') format('truetype'),
+         url('socicon.svg#icomoonregular') format('svg');
     font-weight: normal;
     font-style: normal;
 
