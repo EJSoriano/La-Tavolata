@@ -3,9 +3,9 @@
 	include 'required.php';
 	//REGEX for Price, Name, Description, Path
 	$regprice = "/^\d+(?:\.\d{2})?$/";
-	$regname = "/^[\w\s\' ]+$/";
-	$regdesc = "/.+/";
-	$regpath = "/.+/";
+	$regname = "/^[\w\s\'\.\, ]+$/";
+	$regdesc = "/^[\w\s\'\.\,]+$/";
+	$regpath = "/^[\w\/\%\$\s\:\~\.\_]+$/";
 	$regcat = "/^\d+$/";
 	$getarray = array();
 	$error=false; 

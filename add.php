@@ -36,7 +36,7 @@
 		  $priceErr = "* Price must be in valid format. eg '12' or '12.40'"; 
 	  }
 	  if (isset($_GET[errdescription])) {
-		  $descErr = "* Description is required";
+		  $descErr = "* Description must have valid alphanumeric characters in it. No Special Characters Allowed";
 	  }
 	  if (isset($_GET[errpath])) {
 		  $pathErr = "* Path needs to be valid"; 

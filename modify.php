@@ -32,23 +32,24 @@
 	  if (isset($_GET[success])){
 		  $success = "Your Item was Successfully added";
 	  }
-	   $query = "SELECT name, price, category_id, path_to_image,description from menu_item WHERE name = ?";
-  $stmt=mysqli_prepare($connection, $query);
-  mysqli_stmt_bind_param($stmt, 's',$oname);
-  $oname= $_GET[oname];
-  echo $oname;
+	  $query = "SELECT name, price, category_id, path_to_image,description from menu_item WHERE name = ?";
+	  $stmt=mysqli_prepare($connection, $query);
+	  mysqli_stmt_bind_param($stmt, 's',$oname);
+	  $oname= $_GET[oname];
+	  echo $oname;
 
-  mysqli_stmt_execute($stmt);
-  mysqli_stmt_bind_result($stmt, $name, $price, $category, $path, $description);
-  if(!mysqli_stmt_fetch($stmt)){
-  echo "Illegal Link, Click <a href='admin.php'> Here </a> to go back";die();}
-  mysqli_stmt_close($stmt);
-
+	  mysqli_stmt_execute($stmt);
+	  mysqli_stmt_bind_result($stmt, $name, $price, $category, $path, $description);
+	  if(!mysqli_stmt_fetch($stmt)){
+		  echo "Illegal Link, Click <a href='admin.php'> Here </a> to go back";
+		  die();
+	  }
+	  mysqli_stmt_close($stmt);
 	?>
 
 	<body>
 		<main>
-		<div class="back"> Click <a href="admin.php"> Here </a> </div>
+		<div class="back"> Click <a href="admin.php"> Here </a> to return </div>
 		<span class='errorblock'> <?php echo $sqlErr; ?> </span>
 		<span class='successblock'> <?php echo $success; ?> </span>
 		<form method="POST" action='process.php' >
@@ -84,12 +85,12 @@
 					</div>
 					<div class= 'form_path'>
 						<label for = 'path'>File Path </label>
-							<input type='text' name = 'path'  value='<?php echo $path ?>'>
+							<input type='text' name = 'path'  value="<?php echo $path ?>">
 							<span class='error'><?php echo $pathErr; ?></span>
 					</div>
 					<div class= 'form_description'>
 						<label for= 'description'>Description </label>
-							<input type='text' name = 'description'  value='<?php echo $description ?>'>
+							<input type='text' name = 'description'  value="<?php echo $description ?>">
 							<span class='error'><?php echo $descErr; ?></span>			
 					</div>
 						<input type='submit' value='submit'>		
