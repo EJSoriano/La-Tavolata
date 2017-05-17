@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang = "en">
 	<head>
-		<title>La Tavolita</title>
+		<title>Contact Us</title>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="reset.css">
 		<link rel="stylesheet" href="layout.css">
@@ -17,8 +17,9 @@
  				<h1>La Tavolata</h1>
 
 				<div class="contactBlock">
+				<div class="contactText">
 					<p>11688 South St #106<br/>Artesia<br />CA 90701<br/>Phone: (562) 924-8000</p>
-
+				</div>
 					<br />
 
 					<a href="https://goo.gl/maps/pACCWvYjokM2" target="_blank"><img src="Images/maps.png" alt="maps" class="img-maps" /></a>

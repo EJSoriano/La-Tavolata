@@ -5,13 +5,15 @@
 <!DOCTYPE html>
 <html lang = "en">
 	<head>
-		<title>La Tavolita</title>
+		<title>Add Item</title>
 		<meta charset="utf-8">
 		<link rel = "stylesheet" href="reset.css">
 		<link rel = "stylesheet" href="layout.css">
 	</head>
 	<?php require 'header.php'; 
-	//PHP Session validation here
+	if (!isset($_SESSION['UserID'])){
+		header('Location: login.php');
+	}
 	
 	$regprice = "/^\d+(?:\.\d{2})?$/";
 	$regname = "/.*/";
@@ -54,12 +56,13 @@
 
 	<body>
 	<main>
-		<div class="back"> Click <a href="admin.php"> Here </a> </div>
-		<span class='errorblock'> <?php echo $sqlErr; ?> </span>
-		<span class='successblock'> <?php echo $success; ?> </span>
-		<form method="POST" action='process.php' >
-			<fieldset>
-				<legend> New Menu Item Form </legend>
+		<div class="backButtonContainer">
+			<p><a href="admin.php" class="deleteButt">Back</a></p>
+		</div>
+		<div class="center"><h1>New Menu Item</h1></div>
+		<span class='message'> <?php echo $sqlErr; ?> </span>
+		<span class='message'> <?php echo $success; ?> </span>
+		<form method="POST" action='process.php' class="adminForm">
 					<input type='hidden' name='type' value='add'>
 					<div class= 'form_name'>	
 						<label for= 'name'>Item Name </label>
@@ -87,19 +90,20 @@
 						<span class='error'> <?php echo $catErr ?> </span>
 					</div>
 					<div class= 'form_path'>
-						<label for = 'path'>File Path </label>
+						<label for = 'path'>Image Path </label>
 							<input type='text' name = 'path'>
 							<span class='error'><?php echo $pathErr; ?></span>
 					</div>
 					<div class= 'form_description'>
 						<label for= 'description'>Description </label>
-							<input type='text' name = 'description'>
+							<textarea rows="5" name="description" style="width:100%"></textarea>
 							<span class='error'><?php echo $descErr; ?></span>			
 					</div>
 						<input type='submit' value='submit'>		
-			</fieldset>
 		</form>
-		<main>
+		</main>
+		
+		<?php include 'footer.php' ?>
 	</body>
 </html>
 

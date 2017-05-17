@@ -1,4 +1,4 @@
-<?php echo "<h1>" . $categoryTitle . "</h1>"; ?>
+<?php echo "</br><h1>" . $categoryTitle . "</h1>"; ?>
 <br/>
 <table class="foodTable">
 	<?php

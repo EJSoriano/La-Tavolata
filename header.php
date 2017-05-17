@@ -1,7 +1,7 @@
 <header>
 
 	<div class="logo">
-		<h1><a href = "index.php"><img src="Images/logo1.png" alt="La Tavolita Restaurant Logo"/></a></h1>
+		<h1><a href = "index.php"><img src="Images/logo1.png" alt="La TavolAta Restaurant Logo"/></a></h1>
 	</div>
 	<nav>
 		<ul>

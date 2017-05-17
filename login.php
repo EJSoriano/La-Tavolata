@@ -91,6 +91,7 @@ if ($id && $password) {
         <div class="loginMain">
 			<div class="loginWrapper">
 			<h1>Administrator Login</h1>
+			</br>
             <form role="form" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
               <div class="form-group <?php echo $idClass; ?>">
                 <label for="id">ID</label>

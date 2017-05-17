@@ -28,7 +28,7 @@ if(isset($_GET["category"])){
 <!DOCTYPE html>
 <html lang = "en">
 	<head>
-		<title>La Tavolita</title>
+		<title>La Tavolata Menu</title>
 		<meta charset="utf-8">
 		<link rel = "stylesheet" href="reset.css">
 		<link rel = "stylesheet" href="layout.css">
@@ -63,7 +63,7 @@ if(isset($_GET["category"])){
 					else { echo "No Menu Available<br>";}
 				?>
 				</table>
-				</br></br></br></br></br></br></br></br></br></br></br>
+				</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
 			</div>
 			<div class="menuMain">
 				<div class="menuWrapper">
