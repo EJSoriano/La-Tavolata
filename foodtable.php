@@ -10,7 +10,7 @@
 					$foodPrice = $row["price"];
 					$foodDescription = $row["description"];
 					$foodImage = $row["path_to_image"];
-					echo "<tr><td><img src='" .$foodImage . "' alt='Food Image' class='foodImage'></td>";
+					echo "<tr><td><img src='" .$foodImage . "' alt='" . $foodName . "' class='foodImage'></td>";
 					echo "<td><div class='foodDesc'><div class='foodName'>" . $foodName . "</div>";
 					echo "<div class='foodDetails'>" . $foodDescription . "</div>";
 					echo "<div class='foodPrice'>$" . $foodPrice . "</div></div></td></tr>";
