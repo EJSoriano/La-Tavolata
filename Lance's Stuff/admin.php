@@ -1,14 +1,16 @@
 #!/usr/local/php5/bin/php-cgi
+
 <!DOCTYPE html>
 <html lang = "en">
-	<?php
-		  if (isset($_GET[sqlfail])){
-			  $sqlErr = "SQL Error: " . mysqli_error($connection);
-		  }
-		  if (isset($_GET[success])){
-			  $success = "Operation Successful";
-		  }
-	?>
+<?php	
+	include 'required.php';
+	  if (isset($_GET[sqlfail])){
+		  $sqlErr = "SQL Error: " . mysqli_error($connection);
+	  }
+	  if (isset($_GET[success])){
+		  $success = "Operation Successful";
+	  }
+?>
 	<head>
 		<title>La Tavolita</title>
 		<meta charset="utf-8">
@@ -19,7 +21,7 @@
 	<body>
 		<?php 
 			include 'header.php';
-			include 'required.php';	
+			//require 'required.php';	
 		?>
 
 		<main>
@@ -35,8 +37,8 @@
 				<th>Name</th>
 				<th>Price</th>
 				<th>Category</th>
-				<th>Modify</th>
-				<th>Delete</th>
+				<th></th>
+				<th></th>
 
              </tr>
 			 <?php
@@ -45,18 +47,18 @@
 				  if ($result){
 					while ($row=mysqli_fetch_assoc($result)){
 						echo "<tr>";
-						echo "<td>". $row[name]. "</td>"; 
-						echo "<td> $" . $row[price] . "</td>";
-						$query = "SELECT name FROM menu_categories WHERE id LIKE " . $row[category_id];
+						echo "<td>". $row["name"]. "</td>"; 
+						echo "<td> $" . $row["price"] . "</td>";
+						$query = "SELECT name FROM menu_categories WHERE id LIKE " . $row["category_id"];
 						$catResult = mysqli_query($connection, $query);
 						$catrow = mysqli_fetch_assoc($catResult);
-						echo "<td>" . $catrow[name] . "</td>";
+						echo "<td>" . $catrow["name"] . "</td>";
 						echo "<td><form method='GET' action='modify.php'> 
-						<input type='hidden' name='oname' value=\"".$row[name]."\"> 
+						<input type='hidden' name='oname' value=\"".$row["name"]."\"> 
 						<input type='submit' value='Modify'> 
 						</form></td>";
 						echo "<td><form method='POST' action='process.php'> 
-						<input type='hidden' name='name' value=\"".$row[name]."\"> 
+						<input type='hidden' name='name' value=\"".$row["name"]."\"> 
 						<input type='hidden' name='type' value='delete'> 
 						<input type='submit' value='Delete'> 
 						</form></td>";
@@ -71,4 +73,3 @@
 		</main>
 	</body>
 </html>
-<?php mysqli_close();?>

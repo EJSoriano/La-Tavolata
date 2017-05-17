@@ -1,4 +1,7 @@
 #!/usr/local/php5/bin/php-cgi
+<?php
+	include 'required.php';
+	?>
 <!DOCTYPE html>
 <html lang = "en">
 	<head>
@@ -33,7 +36,7 @@
 		  $priceErr = "* Price must be in valid format. eg '12' or '12.40'"; 
 	  }
 	  if (isset($_GET[errdescription])) {
-		  $descErr = "* Description is required";
+		  $descErr = "* Description must have valid alphanumeric characters in it. No Special Characters Allowed";
 	  }
 	  if (isset($_GET[errpath])) {
 		  $pathErr = "* Path needs to be valid"; 
@@ -50,6 +53,7 @@
 	?>
 
 	<body>
+	<main>
 		<div class="back"> Click <a href="admin.php"> Here </a> </div>
 		<span class='errorblock'> <?php echo $sqlErr; ?> </span>
 		<span class='successblock'> <?php echo $success; ?> </span>
@@ -95,6 +99,7 @@
 						<input type='submit' value='submit'>		
 			</fieldset>
 		</form>
+		<main>
 	</body>
 </html>
 

@@ -1,16 +1,16 @@
 #!/usr/local/php5/bin/php-cgi
 <?php
+	include 'required.php';
 	//REGEX for Price, Name, Description, Path
-	$regprice = "/^\d+(?:\.\d{1,2})?$/";
-	$regname = "/^[\w\s\' ]+$/";
-	$regdesc = "/.+/";
-	$regpath = "/.+/";
+	$regprice = "/^\d+(?:\.\d{2})?$/";
+	$regname = "/^[\w\s\'\.\, ]+$/";
+	$regdesc = "/^[\w\s\'\.\,]+$/";
+	$regpath = "/^[\w\/\%\$\s\:\~\.\_]+$/";
 	$regcat = "/^\d+$/";
 	$getarray = array();
 	$error=false; 
 	//Connection Info
-	include 'header.php';
-	include 'required.php';
+	require 'header.php';
 	$type=$_POST[type];
 	
 	
@@ -26,10 +26,9 @@
 		$host  = $_SERVER['HTTP_HOST'];
 		$uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
 		$redirect = "Location: http://".$host.$uri.'/'.$url;
-		echo $redirect;
-		//header("Location: http://".$host.$uri.'/'.$url);
+		header("Location: http://".$host.$uri.'/'.$url);
 
-		//die();
+		die();
 	}
 	function sanitize($data)
 	{
@@ -114,8 +113,6 @@
 				$getarray[]= "erroname";
 				$error=true;
 			}
-			$oname=$_POST[oname];
-
 			if($error!=true){
 				//Attempt Query
 				echo "Got here";
@@ -127,6 +124,7 @@
 				$description=$_POST[description];
 				$category=$_POST[category];
 				$path=$_POST[path];
+				$oname=$_POST[oname];
 				if(mysqli_stmt_execute($stmt)==true){
 					//Query Successful
 					$getarray[] = 'success';
@@ -134,13 +132,12 @@
 				}else{
 					//Query Unsuccessful					
 					$getarray[] = 'sqlfail';
-					redirectTo("modify.php?oname=".$oname);
+					redirectTo("modify.php?oname=".trim($oname));
 				}
 				mysqli_stmt_close($stmt);			
 			}else{
 				//Put all error's in the URL
-				
-				redirectTo("modify.php?oname=".$oname);
+				redirectTo("modify.php?oname=".trim($oname));
 			}
 			break;
 				
