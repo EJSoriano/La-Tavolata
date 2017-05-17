@@ -41,7 +41,7 @@
 						<th>Manage</th>
 					</tr>
 					<?php
-						$query = "SELECT name, price, category_id FROM menu_item ORDER BY category_id , name ASC";
+						$query = "SELECT name, price, category_id FROM menu_item ORDER BY name ASC";
 						$result = mysqli_query($connection, $query);
 						if ($result){
 							while ($row=mysqli_fetch_assoc($result)){
