@@ -58,6 +58,8 @@ if ($id && $password) {
                 if (($sqlId == $id) && ($sqlPassword == $password)) {
                     $validLogin = true;
                     $_SESSION['UserID'] = $sqlId;
+					header('Location:index.php');
+
                 } else {
                     $passwordMessage = "Incorrect password";
                     // $passwordClass = 'input-error';
@@ -84,6 +86,8 @@ if ($id && $password) {
     <?php include 'header.php' ?>
     <main>
         <div class="loginMain">
+			<div class="loginWrapper">
+			<h1>Administrator Login</h1>
             <form role="form" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
               <div class="form-group <?php echo $idClass; ?>">
                 <label for="id">ID</label>
@@ -99,7 +103,9 @@ if ($id && $password) {
             <br />
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
+		</div>
     </div>
 </main>
+	<?php include 'footer.php' ?>
 </body>
 </html>

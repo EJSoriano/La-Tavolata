@@ -10,10 +10,10 @@
 					$foodPrice = $row["price"];
 					$foodDescription = $row["description"];
 					$foodImage = $row["path_to_image"];
-					echo "<tr><td>" . $foodImage . "</td>";
-					echo "<td><div class='foodName'>" . $foodName . "</div>";
+					echo "<tr><td><img src='" .$foodImage . "' alt='Food Image' class='foodImage'></td>";
+					echo "<td><div class='foodDesc'><div class='foodName'>" . $foodName . "</div>";
 					echo "<div class='foodDetails'>" . $foodDescription . "</div>";
-					echo "<div class='foodPrice'>$" . $foodPrice . "</div></td></tr>";
+					echo "<div class='foodPrice'>$" . $foodPrice . "</div></div></td></tr>";
 				}
 				mysqli_free_result($result);
 			}

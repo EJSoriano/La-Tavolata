@@ -1,0 +1,25 @@
+.welcomeContent {
+	width: 40%;
+	font-size: 140%;
+	float: left;
+	padding-right: 3em;
+	line-height: 150%;
+	padding: 1em;
+	font-weight: bold;
+}
+
+.welcomeHeading {
+	text-align: center;
+	padding-bottom: 1em;
+}
+
+.welcomeWrapper{
+	border: 2px lightgray solid;
+	background-color: #FFDE5E;
+	margin: 2em;
+}
+.welcomeImg {
+	border: solid 4pt white;
+	margin: 1em;
+}
+

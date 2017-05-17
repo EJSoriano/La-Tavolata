@@ -32,27 +32,18 @@
 	  if (isset($_GET[success])){
 		  $success = "Your Item was Successfully added";
 	  }
-	  $query = "SELECT name, price, category_id, path_to_image,description from menu_item WHERE name = ?";
-	  if(!$stmt=mysqli_prepare($connection, $query)){
-		  echo "PROBLEMS";
-	  }
-	  if(!mysqli_stmt_bind_param($stmt, 's',$oname)){
-		  echo "Dafuq!";
-	  };
-	  $oname= $_GET[oname];
-	  echo $oname;
+	   $query = "SELECT name, price, category_id, path_to_image,description from menu_item WHERE name = ?";
+  $stmt=mysqli_prepare($connection, $query);
+  mysqli_stmt_bind_param($stmt, 's',$oname);
+  $oname= $_GET[oname];
+  echo $oname;
 
-	  if(!mysqli_stmt_execute($stmt)){
-		  echo "DAMMIT";
-	  };
-	  if(!mysqli_stmt_bind_result($stmt, $name, $price, $category, $path, $description)){
-		  echo "WHAT THE FUQ";
-	  };
-	  if(!mysqli_stmt_fetch($stmt)){
-		  echo "Illegal Link, Click <a href='admin.php'> Here </a> to go back";
-		  die();
-	  }
-	  mysqli_stmt_close($stmt);
+  mysqli_stmt_execute($stmt);
+  mysqli_stmt_bind_result($stmt, $name, $price, $category, $path, $description);
+  if(!mysqli_stmt_fetch($stmt)){
+  echo "Illegal Link, Click <a href='admin.php'> Here </a> to go back";die();}
+  mysqli_stmt_close($stmt);
+
 	?>
 
 	<body>

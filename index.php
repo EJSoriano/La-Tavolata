@@ -1,7 +1,7 @@
 #!/usr/local/php5/bin/php-cgi
-<?php
+<?php 
 	include 'required.php';
-	?>
+?>
 <!DOCTYPE html>
 <html lang = "en">
 	<head>
@@ -9,14 +9,20 @@
 		<meta charset="utf-8">
 		<link rel = "stylesheet" href="reset.css">
 		<link rel = "stylesheet" href="layout.css">
+		<link rel = "stylesheet" href="index.css">
 	</head>
-	
+
 	<body>
 		<?php include 'header.php' ?>
 		<main>
 			<div class = "welcomeMain">
-				<p>content content content</p>
+				<h1 class="welcomeHeading">Welcome!</h1>
+				<div class="welcomeWrapper">
+					<p class="welcomeContent">La Tavolata is a fresh pasta cafe located in Cerritos, CA. We serve authentic Italian pasta, antipasti, entrees, and desserts, as well as an excellent selection of beers and wines.</p>
+					<img src="Images/restaurant.jpg" class="welcomeImg" alt="La Tavolata interior"/>
+				</div>
 			</div>
 		</main>
+		<?php include 'footer.php' ?>
 	</body>
 </html>

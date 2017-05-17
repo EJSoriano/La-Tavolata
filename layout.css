@@ -31,7 +31,6 @@ header>*{
 
 nav{
 	font-size: 150%;
-	font-weight: bold;
 	position:absolute;
 	margin: 0;
 	padding: 1em;
@@ -70,7 +69,6 @@ header a:visited {color: #ffd95e; }
 footer{
 	background-color: #47630C;
 	color: white;
-	font-style: bold;
 	width: 100%;
 	text-align: center;
 }
@@ -121,21 +119,35 @@ main>*{
 }
 
 .welcomeMain{
-	margin: 2em;
+	margin: 2em auto;
 	padding: 1em;
-	font-weight: bold;
-	position:absolute;
+	height: auto;
+	position:relative;
+	overflow: scroll auto;
 }
 
 .contactMain{
 	margin: 2em;
-	padding: 1em;
-	font-weight: bold;
-	position:absolute;
+	padding: 3em;
+	height: auto;
+	position:relative;
+	overflow: scroll auto;
+	text-align: center;
 }
 
+.contactBlock{
+	font-size: 140%;
+	text-align: center;
+	background-color: #FFDE5E;
+	margin: 3em;
+	line-height: 150%;
+	padding: 1em;
+	font-weight: bold;
+	border: 2px lightgray solid;
+}
 .img-maps {
 	border: 2px gray solid;
+	width: 90%;
 }
 
 .img-maps:hover {
@@ -153,10 +165,18 @@ main>*{
 }
 
 .loginMain{
-	margin: 2em;
+	margin: 3em auto;
+	padding: 5em;
+	width: 100%;
+}
+
+.loginWrapper{
+	margin: 3em auto;
 	padding: 1em;
-	font-weight: bold;
-	position:absolute;
+	border: 2px lightgray solid;
+	background-color: #FFDE5E;
+	text-align: center;
+	width: 50%;
 }
 
 .input-error {
@@ -164,6 +184,9 @@ main>*{
 	font-style: italic;
 }
 
+.logBut:hover{
+	filter: brightness(30%);
+}
 .menuNav{
 	background-color: #563013;
 	height:100%;
@@ -177,7 +200,6 @@ main>*{
 }
 
 .menuMain{
-	font-weight: bold;
 	position:absolute;
 	background-color: white;
 	width: 70%;
@@ -185,13 +207,12 @@ main>*{
 	padding: 0em;
 	text-align: center;
 	margin: 0 auto;
-	overflow; scroll;
+	overflow: scroll;
 	overflow-y: auto;
 }
 
 .menuWrapper{
 	text-align: center;
-	font-style: bold;	
 	width: 100%;
 	margin: 0 auto;
 	padding: 0;
@@ -227,11 +248,26 @@ main>*{
 	text-align: center;
 	white-space: nowrap;
 }
+
+.selected{
+	padding: 0.5em;
+	font-size: 150%;
+	font-weight: bold;
+	background-color: #47630C; 
+	color: white;
+	cursor: pointer;
+	display: block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	text-align: center;
+	white-space: nowrap;
+}
 .foodTable{
 	table-layout: fixed;
 	margin: 0 auto;
 	padding: 0;
 	width: 90%;
+	height: 100%;
 	font-size: 130%;
 	border:none;
 	border-collapse: collapse;
@@ -239,6 +275,9 @@ main>*{
 
 .foodTable td {
 	border: 2pt solid lightgray;
+}
+.foodDesc{
+	height: 100%;
 }
 
 .foodDetails{
@@ -252,6 +291,9 @@ main>*{
 	padding: 0.2em;
 	font-weight: bold;
 	font-size: 120%;
+	width: 100%;
+	position: relative;
+	
 }
 
 .foodPrice{
@@ -260,6 +302,11 @@ main>*{
 	font-weight: bold;
 	font-size: 120%;
 	padding: 0.2em;
+	position: relative;
+	margin: 2em;
+	
 }
 
-
+.foodImage{
+	max-height: 100%;
+}
