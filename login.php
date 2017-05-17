@@ -1,9 +1,7 @@
-#!/usr/local/php5/bin/php-cgi
-
 <?php
 require_once('required.php');
 if (isset($_SESSION['UserID'])) {
-    header('Location: /index.php');
+    header('Location: index.php?welcome');
     return;
 }
 define('DB_HOST', 'cecs-db01.coe.csulb.edu');
@@ -58,8 +56,6 @@ if ($id && $password) {
                 if (($sqlId == $id) && ($sqlPassword == $password)) {
                     $validLogin = true;
                     $_SESSION['UserID'] = $sqlId;
-					header('Location:index.php');
-
                 } else {
                     $passwordMessage = "Incorrect password";
                     // $passwordClass = 'input-error';
@@ -70,6 +66,10 @@ if ($id && $password) {
         mysqli_stmt_close($stmt);
     }
     mysqli_close($connection);
+
+    if ($validLogin) {
+        header('Location: index.php?welcome');
+    }
 }
 ?>
 
