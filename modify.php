@@ -56,7 +56,7 @@
 			<fieldset>
 				<legend> New Menu Item Form </legend>
 					<input type='hidden' name='type' value='modify'>
-					<input type='hidden' name='oname' value="<?php echo $_GET[oname]; ?>"
+					<input type='hidden' name='oname' value="<?php echo $_GET[oname]; ?>">
 					<div class= 'form_name'>	
 						<label for= 'name'>Item Name </label>
 							<input type='text' name='name' value="<?php echo $name ?>">
